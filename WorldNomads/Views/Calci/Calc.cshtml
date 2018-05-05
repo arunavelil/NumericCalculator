@@ -1,0 +1,87 @@
+﻿@model WorldNomads.Models.CalciClass
+@{
+    ViewBag.Title = "Calc";
+}
+<h2>Numeric Calculator</h2>
+@using (Html.BeginForm())
+{
+    <strong>Enter Number</strong>
+    @Html.TextBoxFor(m => Model.inpNum)<input type="submit" value="Calculate" style="color:white; background-color:black" /><br />
+    @Html.ValidationMessageFor(m => Model.inpNum)
+    <br />
+    <br />
+    if (Model.successCritera == true)
+    {
+        <strong>Here We Go!!!</strong>
+        <br />
+        <br />
+        <p> All numbers up to and including the number entered:</p>
+        for (int iter = 0; iter <= Model.inpNum; iter++)
+        {
+            <span><strong>@iter</strong></span>
+        }
+        <p> All odd numbers up to and including the number entered:</p>
+        for (int iter = 0; iter <= Model.inpNum; iter++)
+        {
+            if (iter % 2 != 0 || iter == Model.inpNum)
+            {
+                <span>@iter</span>
+            }
+            if (iter == Model.inpNum)
+            {
+                <strong><span>@iter</span></strong>
+            }
+        }
+        <p> All Even numbers up to and including the number entered:</p>
+        for (int iter = 0; iter <= Model.inpNum; iter++)
+        {
+            if (iter % 2 == 0)
+            {
+                <span>@iter</span>
+            }
+            if (iter == Model.inpNum)
+            {
+                <span><strong>@iter</strong></span>
+            }
+        }
+        <p> All numbers up to and including the number entered, except when</p>
+        <ol>
+            <li>A number is a multiple of 3 output C, when:</li>
+            <li>A number is a multiple of 5 output E, when:</li>
+            <li>A number is a multiple of both 3 and 5 output Z:</li>
+        </ol>
+        for (int iter = 0; iter <= Model.inpNum; iter++)
+        {
+            if (iter == 0)
+            {
+                <span>@iter</span>
+            }
+            else
+            {
+                if (iter % 5 == 0 && iter % 3 == 0)
+                {
+                    <span>Z</span>
+                }
+                else if (iter % 5 == 0)
+                {
+                    <span>E</span>
+                }
+                else if (iter % 3 == 0)
+                {
+                    <span>C</span>
+                }
+                else
+                {
+                    <span>@iter</span>
+                }
+            }
+            if (iter == Model.inpNum)
+            {
+                <span><strong>@iter</strong></span>
+            }
+        }
+
+    }
+}
+
+
