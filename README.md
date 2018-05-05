@@ -1,5 +1,6 @@
-# NumericCalculator
+# NumericCalculator 
 World_Normad_Assessement
+Steps to Proceed
 Clone or Download the files to your Local
 Right Click on Solution Build 
 Once build is successful, right click on solution-> Select option View in Browser(Internet Exploer)
